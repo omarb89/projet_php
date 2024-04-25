@@ -3,41 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GT TOIT</title>
+    <title>Réservation de Chambre</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <h1>GT Toit</h1>
-      <nav>
-        <ul>
-          <li><a href="accueil.html">Accueil</a></li>
-          <li><a href="chambres.html">Réserver</a></li>
-          <li><a href="offres.html">Nos offres</a></li>
-          <li><a href="services.html">Nos services</a></li>
-          <li><a href="Contact.html">Contact</a></li>
-        </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">GT Toit</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="accueil.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chambres.html">Réserver</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="offres.html">Nos offres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Nos services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
-    <main>
-      <section>
+    <main class="container mt-5">
+      <section><br>
         <h2>Formulaire de Contact</h2>
         <form action="envoyer_message.php" method="post">
-          <label for="nom">Nom:</label>
-          <input type="text" id="nom" name="nom" required /><br /><br />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required /><br /><br />
-          <label for="message">Message:</label><br />
-          <textarea id="message" name="message" rows="4" required></textarea
-          ><br /><br />
-          <input type="submit" value="Envoyer" />
+          <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nom"
+              name="nom"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
       </section>
     </main>
 
-    <footer>
+    <footer class="bg-light text-center py-3">
       <p>&copy; 2024 Nous Contacter. Tous droits réservés.</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

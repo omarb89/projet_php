@@ -3,44 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GT TOIT</title>
+    <title>Réservation de Chambre</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
+    
   </head>
   <body>
     <header>
-      <h1>GT Toit</h1>
-      <nav>
-        <ul>
-          <li><a href="accueil.html">Accueil</a></li>
-          <li><a href="chambres.html">Réserver</a></li>
-          <li><a href="offres.html">Nos offres</a></li>
-          <li><a href="services.html">Nos services</a></li>
-          <li><a href="Contact.html">Contact</a></li>
-        </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">GT Toit</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="accueil.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chambres.html">Réserver</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="offres.html">Nos offres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Nos services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h2>Bienvenue à GT Toit</h2>
-        <p>Un endroit où le confort et le luxe se rencontrent.</p>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/4K6Sh1tsAW4?si=iYQltWhPNbxGFgg6"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe
-        ><br />
-        <a href="reservation.html" class="btn">Réserver maintenant</a>
+        <div class="container text-center">
+          <h2>Bienvenue à GT Toit</h2><br><br>
+          <p>Un endroit où le confort et le luxe se rencontrent.</p>
+          <div class="video-container">
+            
+          </div>
+          <a href="chambres.html" class="btn btn-dark"
+            >Réserver maintenant</a
+          >
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2024 GT Toit. Tous droits réservés.</p>
-    </footer>
+    <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
