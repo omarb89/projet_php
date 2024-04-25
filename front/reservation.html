@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GT TOIT</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>GT Toit</h1>
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="reservation.html">Réserver</a></li>
+                <li><a href="offres.html">Nos offres</a></li>
+                <li><a href="services.html">Nos services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulaire de Réservation</h2>
+            <form id="formulaireReservation" action="traitement_reservation.php" method="post">
+                <label for="start_date">Date de Début:</label>
+                <input type="text" id="start_date" name="start_date" placeholder="Sélectionnez la date de début" class="datepicker" required>
+
+                <label for="end_date">Date de Fin:</label>
+                <input type="text" id="end_date" name="end_date" placeholder="Sélectionnez la date de fin" class="datepicker" required><br><br>
+
+                <label for="type_chambre">Type de Chambre:</label>
+                <select id="type_chambre" name="type_chambre" required>
+                    <option value="deluxe">Chambre Deluxe ($200)</option>
+                    <option value="familiale">Chambre Familiale ($250)</option>
+                </select><br><br>
+
+                <label for="services">Services Supplémentaires:</label><br>
+                <input type="checkbox" id="yoga" name="services[]" value="yoga">
+                <label for="yoga">Yoga (+$20)</label><br>
+                <input type="checkbox" id="restaurant" name="services[]" value="restaurant">
+                <label for="restaurant">Restauration (+$50)</label><br>
+                <input type="checkbox" id="sport" name="services[]" value="sport">
+                <label for="sport">Salle de Sport (+$30)</label><br>
+
+                <p id="total">Montant Total: $0</p>
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="telephone">Téléphone:</label>
+                <input type="tel" id="telephone" name="telephone" required><br><br>
+
+                <input type="submit" value="Réserver">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Réserver une Chambre. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+    $(function() {
+        $(".datepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            minDate: 0,
+            onSelect: function(selectedDate) {
+                var option = this.id == "start_date" ? "minDate" : "maxDate",
+                    instance = $(this).data("datepicker"),
+                    date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+                $(".datepicker").not(this).datepicker("option", option, date);
+
+                calculerTotal(); 
+            }
+        });
+
+        function calculerTotal() {
+            var total = 0;
+            var montantBase = 0;
+            var typeChambre = $("#type_chambre").val();
+
+            switch (typeChambre) {
+                case 'deluxe':
+                    montantBase = 200;
+                    break;
+                case 'familiale':
+                    montantBase = 250;
+                    break;
+            }
+
+            var dateDebut = $("#start_date").datepicker("getDate");
+            var dateFin = $("#end_date").datepicker("getDate");
+            var nbJours = Math.ceil((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
+
+            total += montantBase * nbJours; 
+
+            $('input[name="services[]"]:checked').each(function() {
+                switch ($(this).val()) {
+                    case 'yoga':
+                        total += 20;
+                        break;
+                    case 'restaurant':
+                        total += 50;
+                        break;
+                    case 'sport':
+                        total += 30;
+                        break;
+                }
+            });
+
+            $('#total').text('Montant Total: $' + total);
+        }
+
+        $('input[name="services[]"]').change(function() {
+            calculerTotal();
+        });
+
+        $('#type_chambre').change(function() {
+            calculerTotal();
+        });
+    });
+    </script>
+
+</body>
+</html>
