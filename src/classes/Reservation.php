@@ -14,16 +14,10 @@ class Reservation
     #[ORM\Column(type: "integer")]
     private $id;
 
-    #[ORM\Column(name: "id_client", type: "integer")]
-    private $idClient;
-
-    #[ORM\Column(name: "id_room", type: "integer")]
-    private $idRoom;
-
-    #[ORM\Column(name: "arrival_date", type: "date")]
+    #[ORM\Column(name: "arrival_date", type: "string")]
     private $arrivalDate;
 
-    #[ORM\Column(name: "departure_date", type: "date")]
+    #[ORM\Column(name: "departure_date", type: "string")]
     private $departureDate;
 
     #[ORM\Column(name: "payment_method", type: "string")]
