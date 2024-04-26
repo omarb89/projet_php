@@ -2,44 +2,27 @@
 
 namespace Src\Classes;
 
-
-
 use Doctrine\ORM\Mapping as ORM;
+
 
 #[ORM\Entity]
 
 class Company extends CustomerAbstract
 {
-    #[ORM\Column(type: "string")]
-    protected $raisonSociale;
 
 
-    #[ORM\Column(type: "string")]
+    #[ORM\Column(type: 'string')]
+    private $siren;
 
-    protected $numeroSIRET;
 
-    public function getRaisonSociale(): string
+
+    /**
+     * Set the value of siren
+     */
+    public function setSiren($siren)
     {
-        return $this->raisonSociale;
-    }
+        $this->siren = $siren;
 
-    public function setRaisonSociale(string $raisonSociale): void
-    {
-        $this->raisonSociale = $raisonSociale;
-    }
-
-    public function getNumeroSIRET(): ?string
-    {
-        return $this->numeroSIRET;
-    }
-
-    public function setNumeroSIRET(string $numeroSIRET): void
-    {
-        $this->numeroSIRET = $numeroSIRET;
-    }
-
-    public function effectuerReservation(): void
-    {
-
+        return $this;
     }
 }

@@ -4,87 +4,103 @@ namespace Src\Classes;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="Room")
- */
+
+#[ORM\Entity]
+#[ORM\Table(name: "room")]
+
 class Room
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $number;
+    #[ORM\Column(name: "number_room", type: "integer")]
+    private $numberRoom;
+
+    #[ORM\Column(type: "string")]
+    private $category;
+
+    #[ORM\Column(type: "integer")]
+    private $price;
+
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'room')]
+    private $reservations;
+
+    #[ORM\ManyToOne(targetEntity: Hotel::class, inversedBy: 'rooms')] // Correction ici pour refléter la relation avec Hotel
+    private $hotel;
+
+
 
     /**
-     * @ORM\Column(type="integer")
+     * Get the value of id
      */
-    private $capacity;
-
-    /**
-     * @ORM\Column(type="decimal", scale=2)
-     */
-    private $pricePerNight;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $available;
-
-    // Getters and Setters
-
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getNumber(): ?string
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
     {
-        return $this->number;
-    }
+        $this->id = $id;
 
-    public function setNumber(string $number): self
-    {
-        $this->number = $number;
         return $this;
     }
 
-    public function getCapacity(): int
+    /**
+     * Get the value of numberRoom
+     */
+    public function getNumberRoom()
     {
-        return $this->capacity;
+        return $this->numberRoom;
     }
 
-    public function setCapacity(int $capacity): self
+    /**
+     * Set the value of numberRoom
+     */
+    public function setNumberRoom($numberRoom): self
     {
-        $this->capacity = $capacity;
+        $this->numberRoom = $numberRoom;
+
         return $this;
     }
 
-    public function getPricePerNight()
+    /**
+     * Get the value of category
+     */
+    public function getCategory()
     {
-        return $this->pricePerNight;
+        return $this->category;
     }
 
-    public function setPricePerNight($pricePerNight): self
+    /**
+     * Set the value of category
+     */
+    public function setCategory($category): self
     {
-        $this->pricePerNight = $pricePerNight;
+        $this->category = $category;
+
         return $this;
     }
 
-    public function getAvailable(): bool
+    /**
+     * Get the value of price
+     */
+    public function getPrice()
     {
-        return $this->available;
+        return $this->price;
     }
 
-    public function setAvailable(bool $available): self
+    /**
+     * Set the value of price
+     */
+    public function setPrice($price): self
     {
-        $this->available = $available;
+        $this->price = $price;
+
         return $this;
     }
 }

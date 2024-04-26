@@ -1,7 +1,6 @@
 <?php
-// Customer.php
-namespace Src\Classes;
 
+namespace Src\Classes;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,36 +10,47 @@ use Doctrine\ORM\Mapping as ORM;
 class Customer extends CustomerAbstract
 {
 
-    #[ORM\Column(type: "string")]
 
-    protected $prenom;
+    #[ORM\Column(name: 'first_name', type: 'string')]
+    private $firstName;
+
+    #[ORM\Column(name: 'id_number', type: 'string')]
+    private $idNumber;
 
 
-    #[ORM\Column(type: "string")]
-
-    protected $numeroPieceIdentite;
-
-    public function getPrenom(): ?string
+    /**
+     * Get the value of firstName
+     */
+    public function getFirstName()
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
-    public function setPrenom(string $prenom): void
+    /**
+     * Set the value of firstName
+     */
+    public function setFirstName($firstName): self
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
+
+        return $this;
     }
 
-    public function getNumeroPieceIdentite(): ?string
+    /**
+     * Get the value of idNumber
+     */
+    public function getIdNumber()
     {
-        return $this->numeroPieceIdentite;
+        return $this->idNumber;
     }
 
-    public function setNumeroPieceIdentite(string $numeroPieceIdentite): void
+    /**
+     * Set the value of idNumber
+     */
+    public function setIdNumber($idNumber): self
     {
-        $this->numeroPieceIdentite = $numeroPieceIdentite;
-    }
+        $this->idNumber = $idNumber;
 
-    public function effectuerReservation(): void
-    {
+        return $this;
     }
 }

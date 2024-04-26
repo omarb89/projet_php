@@ -1,102 +1,150 @@
 <?php
-// Reservation.php
-namespace Src\Classes;
 
+namespace Src\Classes;
 
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
+#[ORM\Table(name: 'reservations')]
 class Reservation
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: "integer")]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: "Src\Classes\CustomerAbstract")]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\Column(name: "id_client", type: "integer")]
+    private $idClient;
+
+    #[ORM\Column(name: "id_room", type: "integer")]
+    private $idRoom;
+
+    #[ORM\Column(name: "arrival_date", type: "date")]
+    private $arrivalDate;
+
+    #[ORM\Column(name: "departure_date", type: "date")]
+    private $departureDate;
+
+    #[ORM\Column(name: "payment_method", type: "string")]
+    private $paymentMethod;
+
+    #[ORM\ManyToOne(targetEntity: Room::class, inversedBy: "reservations")]
+    #[ORM\JoinColumn(name: 'id_room', referencedColumnName: 'id')]
+    private $room;
+
+    #[ORM\ManyToOne(targetEntity: CustomerAbstract::class, inversedBy: 'reservations')]
+    #[ORM\JoinColumn(name: 'id_client', referencedColumnName: 'id')]
     private $client;
 
-    #[ORM\ManyToOne(targetEntity: Room::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private $chambre;
 
-    #[ORM\Column(type: "date")]
-    private $dateDebut;
 
-    #[ORM\Column(type: "date")]
-    private $dateFin;
 
+    /**
+     * Get the value of id
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    public function getClient()
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
     {
-        return $this->client;
-    }
-
-    public function setClient($client)
-    {
-        $this->client = $client;
+        $this->id = $id;
 
         return $this;
     }
 
-    public function getChambre()
+    /**
+     * Get the value of idClient
+     */
+    public function getIdClient()
     {
-        return $this->chambre;
+        return $this->idClient;
     }
 
-    public function setChambre($chambre)
+    /**
+     * Set the value of idClient
+     */
+    public function setIdClient($idClient): self
     {
-        $this->chambre = $chambre;
+        $this->idClient = $idClient;
 
         return $this;
     }
 
-    public function getDateDebut()
+    /**
+     * Get the value of idRoom
+     */
+    public function getIdRoom()
     {
-        return $this->dateDebut;
+        return $this->idRoom;
     }
 
-    public function setDateDebut($dateDebut)
+    /**
+     * Set the value of idRoom
+     */
+    public function setIdRoom($idRoom): self
     {
-        $this->dateDebut = $dateDebut;
+        $this->idRoom = $idRoom;
 
         return $this;
     }
 
-    public function getDateFin()
+    /**
+     * Get the value of arrivalDate
+     */
+    public function getArrivalDate()
     {
-        return $this->dateFin;
+        return $this->arrivalDate;
     }
 
-    public function setDateFin($dateFin)
+    /**
+     * Set the value of arrivalDate
+     */
+    public function setArrivalDate($arrivalDate): self
     {
-        $this->dateFin = $dateFin;
+        $this->arrivalDate = $arrivalDate;
 
         return $this;
     }
 
-    public function superviserEmploye(): void
+    /**
+     * Get the value of departureDate
+     */
+    public function getDepartureDate()
     {
-
+        return $this->departureDate;
     }
 
-    public function planifierEntretien(): void
+    /**
+     * Set the value of departureDate
+     */
+    public function setDepartureDate($departureDate): self
     {
+        $this->departureDate = $departureDate;
 
+        return $this;
     }
 
-    public function planifierEmploye(): void
+    /**
+     * Get the value of paymentMethod
+     */
+    public function getPaymentMethod()
     {
-
+        return $this->paymentMethod;
     }
 
-    public function planifierHoraire(): void
+    /**
+     * Set the value of paymentMethod
+     */
+    public function setPaymentMethod($paymentMethod): self
     {
+        $this->paymentMethod = $paymentMethod;
 
+        return $this;
     }
 }

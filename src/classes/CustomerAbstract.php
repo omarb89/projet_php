@@ -5,50 +5,61 @@ namespace Src\Classes;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: "customer")]
+#[ORM\Table(name: "client")]
 #[ORM\InheritanceType("JOINED")]
 #[ORM\DiscriminatorColumn(name: "type", type: "string")]
-#[ORM\DiscriminatorMap(["company" => "Src\Classes\Company", "customer" => "Src\Classes\Customer"])]
+#[ORM\DiscriminatorMap(["company" => Company::class, "customer" => Customer::class])]
 
 abstract class CustomerAbstract
 {
-
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-
+    #[ORM\GeneratedValue(strategy: "AUTO")]
     #[ORM\Column(type: "integer")]
     protected $id;
 
+
     #[ORM\Column(type: "string")]
-    protected $nom;
+    protected $name;
 
-    #[ORM\Column(type: "integer")]
-    protected $numeroChambre;
 
-    public function getId(): ?int
+    #[ORM\Column(name: "number_room", type: "integer")]
+    protected $numberRoom;
+
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'client')]
+    private $reservations;
+
+    // Getters and setters
+
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function setId($id): self
     {
-        return $this->nom;
+        $this->id = $id;
+        return $this;
     }
 
-    public function setNom(string $nom): void
+    public function getName()
     {
-        $this->nom = $nom;
+        return $this->name;
     }
 
-    public function getNumeroChambre(): ?int
+    public function setName($name): self
     {
-        return $this->numeroChambre;
+        $this->name = $name;
+        return $this;
     }
 
-    public function setNumeroChambre(int $numeroChambre): void
+    public function getNumberRoom()
     {
-        $this->numeroChambre = $numeroChambre;
+        return $this->numberRoom;
     }
 
-    abstract public function effectuerReservation(): void;
+    public function setNumberRoom($numberRoom): self
+    {
+        $this->numberRoom = $numberRoom;
+        return $this;
+    }
 }
