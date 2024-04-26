@@ -1,0 +1,72 @@
+[
+  {
+    "nom": "Hôtel Étoile",
+    "numero_telephone": "+33 1 23 45 67 89",
+    "nom_rue": "Avenue des Champs-Élysées",
+    "code_postal": "75008",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Hôtel du Palais",
+    "numero_telephone": "+33 1 23 45 67 90",
+    "nom_rue": "Rue de Rivoli",
+    "code_postal": "75001",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Hôtel de Ville",
+    "numero_telephone": "+33 1 23 45 67 91",
+    "nom_rue": "Place de l'Hôtel de Ville",
+    "code_postal": "75004",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Hôtel des Arts",
+    "numero_telephone": "+33 1 23 45 67 92",
+    "nom_rue": "Rue des Artistes",
+    "code_postal": "69002",
+    "ville": "Lyon"
+  },
+  {
+    "nom": "Hôtel de la Côte",
+    "numero_telephone": "+33 5 67 89 01 23",
+    "nom_rue": "Boulevard de la Mer",
+    "code_postal": "17000",
+    "ville": "La Rochelle"
+  },
+  {
+    "nom": "Hôtel de la Gare",
+    "numero_telephone": "+33 4 56 78 90 12",
+    "nom_rue": "Avenue de la Gare",
+    "code_postal": "31000",
+    "ville": "Toulouse"
+  },
+  {
+    "nom": "Hôtel Beau Rivage",
+    "numero_telephone": "+33 4 56 78 90 13",
+    "nom_rue": "Quai de la Daurade",
+    "code_postal": "31000",
+    "ville": "Toulouse"
+  },
+  {
+    "nom": "Hôtel des Pyrénées",
+    "numero_telephone": "+33 5 43 21 09 87",
+    "nom_rue": "Avenue des Pyrénées",
+    "code_postal": "64000",
+    "ville": "Pau"
+  },
+  {
+    "nom": "Hôtel Central",
+    "numero_telephone": "+33 5 43 21 09 88",
+    "nom_rue": "Rue Centrale",
+    "code_postal": "33000",
+    "ville": "Bordeaux"
+  },
+  {
+    "nom": "Hôtel Belle Vue",
+    "numero_telephone": "+33 5 43 21 09 89",
+    "nom_rue": "Avenue Belle Vue",
+    "code_postal": "44000",
+    "ville": "Nantes"
+  }
+]

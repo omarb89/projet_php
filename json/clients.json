@@ -1,0 +1,82 @@
+[
+  {
+    "nom": "Dupont",
+    "prenom": "Marie",
+    "numero_rue": "12",
+    "nom_rue": "Rue de la République",
+    "code_postal": "75001",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Martin",
+    "prenom": "Jean",
+    "numero_rue": "8",
+    "nom_rue": "Avenue des Champs-Élysées",
+    "code_postal": "75008",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Dubois",
+    "prenom": "Sophie",
+    "numero_rue": "5",
+    "nom_rue": "Rue du Faubourg Saint-Honoré",
+    "code_postal": "75002",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Lefebvre",
+    "prenom": "Pierre",
+    "numero_rue": "15",
+    "nom_rue": "Boulevard Haussmann",
+    "code_postal": "75009",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Moreau",
+    "prenom": "Anne",
+    "numero_rue": "20",
+    "nom_rue": "Avenue Montaigne",
+    "code_postal": "75016",
+    "ville": "Paris"
+  },
+  {
+    "nom": "Simon",
+    "prenom": "Thomas",
+    "numero_rue": "3",
+    "nom_rue": "Rue de la Liberté",
+    "code_postal": "69001",
+    "ville": "Lyon"
+  },
+  {
+    "nom": "Michel",
+    "prenom": "Julie",
+    "numero_rue": "7",
+    "nom_rue": "Avenue du Général de Gaulle",
+    "code_postal": "69002",
+    "ville": "Lyon"
+  },
+  {
+    "nom": "Roux",
+    "prenom": "Nicolas",
+    "numero_rue": "25",
+    "nom_rue": "Rue Victor Hugo",
+    "code_postal": "13001",
+    "ville": "Marseille"
+  },
+  {
+    "nom": "Girard",
+    "prenom": "Sophie",
+    "numero_rue": "18",
+    "nom_rue": "Avenue des Doyennés",
+    "code_postal": "33000",
+    "ville": "Bordeaux"
+  },
+  {
+    "nom": "Fournier",
+    "prenom": "Éric",
+    "numero_rue": "30",
+    "nom_rue": "Rue Sainte-Catherine",
+    "code_postal": "33000",
+    "ville": "Bordeaux"
+  }
+]
