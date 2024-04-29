@@ -22,9 +22,6 @@ abstract class CustomerAbstract
     protected $name;
 
 
-    #[ORM\Column(name: "number_room", type: "integer")]
-    protected $numberRoom;
-
     #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'client')]
     private $reservations;
 
@@ -52,14 +49,4 @@ abstract class CustomerAbstract
         return $this;
     }
 
-    public function getNumberRoom()
-    {
-        return $this->numberRoom;
-    }
-
-    public function setNumberRoom($numberRoom): self
-    {
-        $this->numberRoom = $numberRoom;
-        return $this;
-    }
 }

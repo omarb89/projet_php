@@ -1,0 +1,29 @@
+[
+  {
+    "name": [
+      {
+        "fr": "Escalope de veau à la milanaise, linguine à la tomate",
+        "en": "Milanese veal escalope with tomato linguini"
+      }
+    ],
+    "price": 26
+  },
+  {
+    "name": [
+      {
+        "fr": "Burger cheddar",
+        "en": "Burger , cheddar cheese"
+      }
+    ],
+    "price": 26
+  },
+  {
+    "name": [
+      {
+        "fr": "Pâtes Bolognaise",
+        "en": "Pasta"
+      }
+    ],
+    "price": 22
+  }
+]

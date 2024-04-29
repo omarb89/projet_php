@@ -20,6 +20,9 @@ class Hotel
   #[ORM\Column(type: "string", length: 255)]
   private $address;
 
+  #[ORM\Column(type: "string", length: 255)]
+  private $phoneHotel;
+
   #[ORM\Column(type: "string")]
   private $city;
 
@@ -47,6 +50,16 @@ class Hotel
   public function getAddress()
   {
     return $this->address;
+  }
+
+  public function setPhoneHotel(string $phoneHotel)
+  {
+    $this->phoneHotel = $phoneHotel;
+    return $this;
+  }
+  public function getPhoneHotel()
+  {
+    return $this->phoneHotel;
   }
 
   public function setAddress(string $address)

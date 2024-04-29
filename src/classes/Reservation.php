@@ -14,6 +14,9 @@ class Reservation
     #[ORM\Column(type: "integer")]
     private $id;
 
+
+
+
     #[ORM\Column(name: "arrival_date", type: "string")]
     private $arrivalDate;
 
@@ -23,15 +26,27 @@ class Reservation
     #[ORM\Column(name: "payment_method", type: "string")]
     private $paymentMethod;
 
+    #[ORM\Column(name: "email", type: "string")]
+    private $email;
+
+    #[ORM\Column(name: "phone", type: "string")]
+    private $phone;
+
+    #[ORM\Column(name: "services", type: "string")]
+    private $services;
+
+
+    #[ORM\Column(name: "total_price", type: "integer")]
+    private $totalPrice;
+
+
     #[ORM\ManyToOne(targetEntity: Room::class, inversedBy: "reservations")]
     #[ORM\JoinColumn(name: 'id_room', referencedColumnName: 'id')]
     private $room;
 
-    #[ORM\ManyToOne(targetEntity: CustomerAbstract::class, inversedBy: 'reservations')]
+    #[ORM\ManyToOne(targetEntity: CustomerAbstract::class, inversedBy: 'reservations', cascade: ['persist'])]
     #[ORM\JoinColumn(name: 'id_client', referencedColumnName: 'id')]
     private $client;
-
-
 
 
     /**
@@ -52,41 +67,8 @@ class Reservation
         return $this;
     }
 
-    /**
-     * Get the value of idClient
-     */
-    public function getIdClient()
-    {
-        return $this->idClient;
-    }
 
-    /**
-     * Set the value of idClient
-     */
-    public function setIdClient($idClient): self
-    {
-        $this->idClient = $idClient;
 
-        return $this;
-    }
-
-    /**
-     * Get the value of idRoom
-     */
-    public function getIdRoom()
-    {
-        return $this->idRoom;
-    }
-
-    /**
-     * Set the value of idRoom
-     */
-    public function setIdRoom($idRoom): self
-    {
-        $this->idRoom = $idRoom;
-
-        return $this;
-    }
 
     /**
      * Get the value of arrivalDate
@@ -138,6 +120,97 @@ class Reservation
     public function setPaymentMethod($paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     */
+    public function setEmail($email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+    public function getServices()
+    {
+        return $this->services;
+    }
+
+    public function setServices($services)
+    {
+        $this->services = $services;
+
+        return $this;
+    }
+
+
+    public function getTotalPrice()
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice($totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
+        return $this;
+    }
+
+    /**
+     * Get the value of room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * Set the value of room
+     */
+    public function setRoom($room): self
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Set the value of client
+     */
+    public function setClient($client): self
+    {
+        $this->client = $client;
 
         return $this;
     }
